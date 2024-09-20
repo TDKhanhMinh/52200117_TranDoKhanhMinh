@@ -9,7 +9,9 @@ public class ProductDAO implements Repository<Product, Integer> {
 
     public ProductDAO(String url) throws SQLException {
         this.connection = DriverManager.getConnection(url);
+        createDatabase();
     }
+
     static {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -18,6 +20,24 @@ public class ProductDAO implements Repository<Product, Integer> {
         }
     }
 
+    private void createDatabase() throws SQLException {
+        try (Statement stmt = connection.createStatement()) {
+
+            stmt.execute("CREATE DATABASE IF NOT EXISTS ProductManagement");
+
+            // Use the ProductManagement database
+            stmt.execute("USE ProductManagement");
+
+            // Drop the Product table if it exists
+            stmt.execute("DROP TABLE IF EXISTS Product");
+
+            // Recreate the Product table
+            stmt.execute("CREATE TABLE Product (" +
+                    "id INT PRIMARY KEY AUTO_INCREMENT, " +
+                    "name VARCHAR(255) NOT NULL, " +
+                    "price DECIMAL(10, 2) NOT NULL)");
+        }
+    }
 
     @Override
     public Integer add(Product item) throws SQLException {
