@@ -31,11 +31,11 @@ public class App {
 //        manufactureDAO.update(onepluss);
 
 
-        Phone iphone = new Phone("1", "iPhone", "Red", 20000000, "US", 20);
-        Phone galaxy = new Phone("2", "Samsung", "Pink", 18000000, "Korea", 18);
-        Phone pixel = new Phone("3", "Google Pixel", "Black", 15000000, "Korea", 15);
-        Phone oneplus = new Phone("4", "OnePlus", "Pink", 12000000, "China", 17);
-        Phone xiaomi = new Phone("5", "Xiaomi", "White", 14000000, "China", 14);
+        Phone iphone = new Phone("1", "iPhone", "Red", 20000000, "US", 20,apple);
+        Phone galaxy = new Phone("2", "Samsung", "Pink", 18000000, "Korea", 18,samsung);
+        Phone pixel = new Phone("3", "Google Pixel", "Black", 15000000, "Korea", 15,google);
+        Phone oneplus = new Phone("4", "OnePlus", "Pink", 12000000, "China", 17,onepluss);
+        Phone xiaomi = new Phone("5", "Xiaomi", "White", 14000000, "China", 14,xiaomii);
 
         phoneDAO.add(iphone);
         phoneDAO.add(galaxy);

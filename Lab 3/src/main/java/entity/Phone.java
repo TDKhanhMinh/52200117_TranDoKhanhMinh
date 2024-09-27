@@ -1,5 +1,6 @@
 package entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Entity(name = "mobilephone")
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
 public class Phone {
     @Id
@@ -30,26 +32,16 @@ public class Phone {
     @JoinColumn(name = "manufacture_id")
     private Manufacture manufacture;
 
-    public Phone(String id, String name, String color, int price, String country, int quantity) {
-        this.id = id;
-        this.name = name;
-        this.color = color;
-        this.price = price;
-        this.country = country;
-        this.quantity = quantity;
-
-    }
 
     @Override
     public String toString() {
         return "Phone{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", color='" + color + '\'' +
-                ", price=" + price +
+                "quantity=" + quantity +
                 ", country='" + country + '\'' +
-                ", quantity=" + quantity +
-                ", manufacture=" + manufacture +
+                ", price=" + price +
+                ", color='" + color + '\'' +
+                ", name='" + name + '\'' +
+                ", id='" + id + '\'' +
                 '}';
     }
 }
