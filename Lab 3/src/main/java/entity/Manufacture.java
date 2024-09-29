@@ -1,5 +1,6 @@
 package entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,11 +12,12 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Manufacture {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private String id;
+    private int id;
 
     @Column(name = "name", nullable = false, length = 128)
     private String name;
@@ -30,8 +32,7 @@ public class Manufacture {
     private List<Phone> phones;
 
 
-    public Manufacture(String id, String name, String location, int employee) {
-        this.id = id;
+    public Manufacture(String name, String location, int employee) {
         this.name = name;
         this.location = location;
         this.employee = employee;

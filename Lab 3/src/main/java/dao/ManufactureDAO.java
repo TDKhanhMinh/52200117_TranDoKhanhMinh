@@ -25,7 +25,7 @@ public class ManufactureDAO {
     }
 
     // Read
-    public void getById(String id) {
+    public void getById(int id) {
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             session.get(Manufacture.class, id);
         }
@@ -68,7 +68,7 @@ public class ManufactureDAO {
     }
 
     // Delete by ID
-    public void removeById(String id) {
+    public void removeById(int id) {
         Transaction transaction = null;
         try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();

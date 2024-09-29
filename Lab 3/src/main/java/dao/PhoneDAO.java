@@ -18,12 +18,6 @@ public class PhoneDAO {
         Session session = HibernateUtils.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
-//            if (phone.getManufacture() == null) {
-//               Manufacture manufacture= findManufacture(phone.getId());
-//                if (manufacture != null) {
-//                    phone.setManufacture(manufacture);
-//                }
-//            }
             session.save(phone);
             transaction.commit();
         } catch (Exception e) {
@@ -62,7 +56,7 @@ public class PhoneDAO {
         }
     }
 
-    public void remove(String id) {
+    public void remove(int id) {
 
         Transaction transaction = null;
         Session session = HibernateUtils.getSessionFactory().openSession();
@@ -160,18 +154,9 @@ public class PhoneDAO {
     public PhoneDAO() {
         this.manufactureDAO = new ManufactureDAO();
     }
-
-
-//    private Manufacture findManufacture(String phoneID) {
-//        List<Manufacture> manufactures = manufactureDAO.getAll();
-//        String PhoneID = phoneID.toLowerCase();
-//        for (Manufacture manufacture : manufactures) {
-//            if (PhoneID.contains(manufacture.getId().toLowerCase())) {
-//                return manufacture;
-//            }
-//        }
-//        return null;
-//    }
 }
+
+
+
 
 

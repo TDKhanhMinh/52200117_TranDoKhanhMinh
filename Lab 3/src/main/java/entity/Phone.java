@@ -14,9 +14,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Phone {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private String id;
+    private int id;
     @Column(name = "name", nullable = false, length = 128)
     private String name;
     @Column(name = "color", nullable = false)
@@ -32,6 +32,14 @@ public class Phone {
     @JoinColumn(name = "manufacture_id")
     private Manufacture manufacture;
 
+    public Phone(String name, String color, int price, String country, int quantity, Manufacture manufacture) {
+        this.name = name;
+        this.color = color;
+        this.price = price;
+        this.country = country;
+        this.quantity = quantity;
+        this.manufacture = manufacture;
+    }
 
     @Override
     public String toString() {
