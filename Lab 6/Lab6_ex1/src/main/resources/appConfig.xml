@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- First bean configured with <property> -->
+    <bean id="product1" class="org.example.Product" scope="prototype">
+        <property name="id" value="1"/>
+        <property name="name" value="Samsung"/>
+        <property name="price" value="100"/>
+        <property name="description" value="Description of Product One"/>
+    </bean>
+
+    <!-- Second bean configured with <constructor-arg> -->
+    <bean id="product2" class="org.example.Product" scope="prototype">
+        <constructor-arg value="2"/>
+        <constructor-arg value="Iphone"/>
+        <constructor-arg value="200"/>
+        <constructor-arg value="Description of Product Two"/>
+    </bean>
+
+    <!-- Third bean configured as a singleton using <property> -->
+    <bean id="product3" class="org.example.Product">
+        <property name="id" value="3"/>
+        <property name="name" value="Xiaomi"/>
+        <property name="price" value="300"/>
+        <property name="description" value="Description of Product Three"/>
+    </bean>
+
+</beans>
